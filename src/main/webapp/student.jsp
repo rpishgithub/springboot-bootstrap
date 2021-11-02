@@ -18,14 +18,20 @@
         <th>ID</th>
         <th>Name</th>
         <th>Age</th>
+        <th>Operation</th>
     </tr>
     <c:forEach items="${list}" var="student">
         <tr>
             <td>${student.id}</td>
             <td>${student.name}</td>
             <td>${student.age}</td>
+            <td>
+                <a href="/jsp/findById/${student.id}">Edit</a>
+                <a href="/jsp/deleteById/${student.id}">Delete</a>
+            </td>
         </tr>
     </c:forEach>
 </table>
+<a href="/save.jsp">Add Student</a>
 </body>
 </html>
