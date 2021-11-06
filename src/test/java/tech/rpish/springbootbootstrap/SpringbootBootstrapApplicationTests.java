@@ -39,9 +39,12 @@ public class SpringbootBootstrapApplicationTests {
         int result = userMapper.updateById(user);
         System.out.println(result);
     }
-//    @Test
-//    public void testDelete() {
-//        int result = userMapper.deleteById()
-//    }
+
+    @Test
+    public void OptimisticLockTest() {
+        User user = userMapper.selectById(1456632686844272646l);
+        user.setName("OptimisticLocker");
+        userMapper.updateById(user);
+    }
 
 }
