@@ -17,7 +17,7 @@ public class SpringbootBootstrapApplicationTests {
     private UserMapper userMapper;
 
     @Test
-    public void testSelectList() {
+    public void selectListTest() {
 
         System.out.println("Select All Test");
         List<User> users = userMapper.selectList(null);
@@ -25,7 +25,7 @@ public class SpringbootBootstrapApplicationTests {
     }
 
     @Test
-    public void testInsert() {
+    public void insertTest() {
         User user = new User();
         user.setName("Helen");
         user.setAge(18);
@@ -72,5 +72,26 @@ public class SpringbootBootstrapApplicationTests {
         System.out.println(page.getCurrent());
         System.out.println(page.getRecords());
         System.out.println(page.getTotal());
+    }
+
+    @Test
+    public void deleteByIdTest() {
+        int result = userMapper.deleteById(1456632686844272644l);
+        System.out.println(result);
+    }
+
+    @Test
+    public void deleteBatchIdsTest() {
+        int result = userMapper.deleteBatchIds(Arrays.asList(4, 5, 6));
+        System.out.println(result);
+    }
+
+    @Test
+    public void deleteByMapTest() {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("name", "Helen");
+        map.put("version", 1);
+        int result = userMapper.deleteByMap(map);
+        System.out.println(result);
     }
 }
