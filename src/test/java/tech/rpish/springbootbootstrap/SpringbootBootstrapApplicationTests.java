@@ -1,5 +1,6 @@
 package tech.rpish.springbootbootstrap;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,5 +94,13 @@ public class SpringbootBootstrapApplicationTests {
         map.put("version", 1);
         int result = userMapper.deleteByMap(map);
         System.out.println(result);
+    }
+
+    @Test
+    public void selectByWrapperTest() {
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("name", "helen");
+        List<User> users = userMapper.selectList(queryWrapper);
+        users.forEach(System.out::println);
     }
 }
